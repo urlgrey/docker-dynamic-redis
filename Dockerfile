@@ -29,9 +29,10 @@ RUN buildDeps='gcc libc6-dev libyajl-dev cmake make git'; \
     && git clone https://github.com/mattsta/redis \
     && cd redis \
     && git checkout dynamic-redis-unstable \
-    && make -C /usr/src/redis \
-    && make -C /usr/src/redis install \
+    && make -C /usr/src/redis/redis \
+    && make -C /usr/src/redis/redis install \
     && mkdir -p /usr/src/krmt \
+    && cd /usr/src/krmt \
     && git clone https://github.com/mattsta/krmt \
     && cd krmt \
     && make -j \
