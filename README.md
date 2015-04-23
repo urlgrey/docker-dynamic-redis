@@ -6,7 +6,7 @@ Docker image for the [Dynamic Redis](https://matt.sh/dynamic-redis) server.  Use
 Uses the default redis configuration that's supplied with the Dynamic Redis project.
 
 ```shell
-$ sudo docker run dynamic-redis:latest
+$ sudo docker run -p 6379:6379 dynamic-redis:latest
 1:C 23 Apr 04:24:20.564 * Module [<builtin>] loaded 163 commands.
 1:C 23 Apr 04:24:20.568 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
                 _._
@@ -37,7 +37,7 @@ $ sudo docker run dynamic-redis:latest
 Uses the sample redis configuration that's checked into the ```docker-dynamic-redis``` project repository, which will load the ```geo.so``` module:
 
 ```shell
-$ sudo docker run -v `pwd`/redis.conf:/usr/local/etc/redis/redis.conf dynamic-redis:latest redis-server /usr/local/etc/redis/redis.conf1:C 23 Apr 04:29:58.980 * Module [<builtin>] loaded 163 commands.
+$ sudo docker run -p 6379:6379 -v `pwd`/redis.conf:/usr/local/etc/redis/redis.conf dynamic-redis:latest redis-server /usr/local/etc/redis/redis.conf1:C 23 Apr 04:29:58.980 * Module [<builtin>] loaded 163 commands.
 1:C 23 Apr 04:29:58.990 * Loading new [geo.so] module.
 1:C 23 Apr 04:29:58.990 * Added command geoadd [geo.so]
 1:C 23 Apr 04:29:58.991 * Added command georadius [geo.so]
