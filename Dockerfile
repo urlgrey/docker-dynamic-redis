@@ -36,7 +36,7 @@ RUN buildDeps='gcc libc6-dev libyajl-dev cmake make git'; \
     && git clone https://github.com/mattsta/krmt \
     && cd krmt \
     && make -j \
-    && cp geo.so /usr/lib \
+    && cp *.so /usr/lib \
     && rm -rf /usr/src/redis /usr/src/yajl /usr/src/krmt \
     && apt-get purge -y --auto-remove $buildDeps
 
